@@ -61,6 +61,9 @@ public class SecurityConfig {
             .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET, "/api/demo/user")).hasAuthority("USER")
             .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET, "/api/demo/user-admin")).hasAnyAuthority("USER", "ADMIN")
 
+            //Recipe-exercises Part 4 assignment
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET, "/info")).permitAll()
+
 
             //Allow index.html for anonymous users
             .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET, "/index.html")).permitAll()
