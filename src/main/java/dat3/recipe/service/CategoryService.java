@@ -1,5 +1,6 @@
 package dat3.recipe.service;
 
+import dat3.recipe.dto.CategoryDto;
 import dat3.recipe.entity.Category;
 import dat3.recipe.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,20 @@ public class CategoryService {
         List<Category> categories =  categoryRepository.findAll();
         //Convert from list of Categories to DTO-type, list of Strings
         return categories.stream().map((c)->new String(c.getName())).toList();
+    }
+
+    public CategoryDto addCategory(CategoryDto request) {
+
+        Category newCategory = new Category();
+        updateCategory(newCategory, request);
+        categoryRepository.save(newCategory);
+        return new CategoryDto(newCategory, )
+    }
+
+    public void updateCategory(Category original, CategoryDto c){
+        original.setName(c.getName());
+        original.setCreated(c.getCreated());
+        original.setEdited(c.getEdited());
     }
 }
 
