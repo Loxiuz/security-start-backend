@@ -27,7 +27,7 @@ public class CategoryService {
         Category newCategory = new Category();
         updateCategory(newCategory, request);
         categoryRepository.save(newCategory);
-        return new CategoryDto(newCategory, )
+        return new CategoryDto(newCategory);
     }
 
     public void updateCategory(Category original, CategoryDto c){
